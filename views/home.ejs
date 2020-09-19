@@ -11,7 +11,7 @@
     <main>
       <section class="nav">
         <h2 class="places">Places</h2>
-        <p class="city"><%= cityName %></p>
+        <p class="city">-</p>
         <form action="/" method="POST">
           <input type="text" name="cityName" id="city-name" />
           <button type="submit" id="form-btn">
@@ -20,7 +20,7 @@
         </form>
       </section>
       <section class="main-wrapper">
-        <h1 class="homepage">Enter your City Name</h1>
+        <h1 class="homepage"><%= message %></h1>
       </section>
     </main>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
