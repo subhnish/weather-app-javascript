@@ -1,6 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const http = require("http");
+const https = require("https");
 const ejs = require("ejs");
 const app = express();
 const dayjs = require("dayjs")
@@ -23,11 +23,11 @@ app.get("/", (req, res) => {
 app.post("/", (req, res) => {
   let cityName = req.body.cityName
   let apiKey = "51c6260035c3c1a3e7d8736a3599ff3e";
-  let frontUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+  let frontUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   let apiUrl = `${frontUrl}${cityName}&appid=${apiKey}`;
-  let oneCallFrontUrl = "http://api.openweathermap.org/data/2.5/onecall?lat=";
+  let oneCallFrontUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
 
-  http.get(apiUrl, (response) => {
+  https.get(apiUrl, (response) => {
     let body = "";
     response.on("data", (chunk) => {
       body += chunk;
@@ -39,7 +39,7 @@ app.post("/", (req, res) => {
       lon = json.coord.lon;
     //   console.log(json);
       let OneCallapiUrl = `${oneCallFrontUrl}${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}`;
-      http.get(OneCallapiUrl, (response2) => {
+      https.get(OneCallapiUrl, (response2) => {
         let body2 = "";
         response2.on("data", (chunk) => {
           body2 += chunk;
