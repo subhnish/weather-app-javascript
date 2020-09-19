@@ -165,7 +165,6 @@ cursor: pointer;
     display: flex;
     overflow: auto;
     max-width: 80vw;
-    margin-right: 3rem;
 }
 
 .temp-icon {
@@ -203,6 +202,10 @@ cursor: pointer;
     
     .cards  > *:first-child {
         margin-left: 0;
+    }
+
+    .cards {
+        margin-right: 3rem;
     }
 
 }
@@ -256,7 +259,7 @@ cursor: pointer;
         flex-direction: column;
         width: 80%;
         margin-left: auto;
-        margin-left: auto;
+        margin-right: auto;
     }
 
     .hidden {
