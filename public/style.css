@@ -217,6 +217,7 @@ cursor: pointer;
     .main-wrapper {
         padding-left: 0;
         background-color: #333533;
+        min-height: 100vh;
     }
 
     .current-weather {
