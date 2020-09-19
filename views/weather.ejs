@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Weather App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link type="text/css" rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <main>
+      <section class="nav">
+        <h2 class="places">Places</h2>
+        <p class="city"><%= cityName %></p>
+        <form action="/" method="POST">
+          <input type="text" name="cityName" id="city-name" />
+          <button type="submit" id="form-btn">
+            <span class="city-icon">&#10140;</span>
+          </button>
+        </form>
+      </section>
+      <section class="main-wrapper">
+        <div class="current-weather">
+          <h1>Current Weather</h1>
+          <p class="date-today"></p>
+          <p class="time"></p>
+          <div class="temp-icon">
+            <p class="current-temp"><%= tempEjs %><span>&#176;</span></p>
+            <img src="<%= iconUrl %>" />
+          </div>
+          <p class="condition"><%= weatherEjs %></p>
+        </div>
+        <div class="daily">
+          <div class="daily-heading">
+            <button type="button" class="hourly-btn btn">HOURLY</button>
+            <button type="button" class="daily-btn btn">DAILY</button>
+          </div>
+          <div class="daily-cards cards hidden">
+            <!-- Daily Cards -->
+            <%_ for(let i = 0; i < dailyWeath.length; i++ ) { %> <%_ let hour =
+            dailyWeath[i].dt %>
+            <div class="daily-weather card">
+              <p><%= dayjs.unix(hour).format('DD-MM | h:mm A') %></p>
+              <div class="temp-icon">
+                <p class="current-temp">
+                  <%= (dailyWeath[i].temp.day - 273.15).toFixed(0) %><span
+                    >&#176;</span
+                  >
+                </p>
+                <img src= <%=
+                `http://openweathermap.org/img/wn/${dailyWeath[i].weather[0].icon}@2x.png`
+                %> />
+              </div>
+              <p class="condition">
+                <%= dailyWeath[i].weather[0].description.charAt(0).toUpperCase()
+                + dailyWeath[i].weather[0].description.slice(1); %>
+              </p>
+            </div>
+            <%_ } %>
+          </div>
+
+          <div class="hourly-cards cards">
+            <%_ for(let i = 0; i < hourlyWeath.length; i++ ) { %> <%_ let hour =
+            hourlyWeath[i].dt %>
+            <div class="hourly-weather card">
+              <p><%= dayjs.unix(hour).format('DD-MM | h:mm A') %></p>
+              <div class="temp-icon">
+                <p class="current-temp">
+                  <%= (hourlyWeath[i].temp - 273.15).toFixed(0) %><span
+                    >&#176;</span
+                  >
+                </p>
+                <img src= <%=
+                `http://openweathermap.org/img/wn/${hourlyWeath[i].weather[0].icon}@2x.png`
+                %> />
+              </div>
+              <p class="condition">
+                <%=
+                hourlyWeath[i].weather[0].description.charAt(0).toUpperCase() +
+                hourlyWeath[i].weather[0].description.slice(1); %>
+              </p>
+            </div>
+            <%_ } %>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* Main Body */
+
+main {
+    display: grid;
+    grid-template-columns: 10rem auto;
+    min-height: 100vh;
+}
+
+/* Navigation Bar */
+
+.nav {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    background-color: #191919;
+    color: #E8EDDF;
+}
+
+.city {
+    text-align: center;
+    background-color: #333533;
+    border-radius: 5px;
+    padding: 0.7rem;
+    margin: 8px 4px;
+}
+
+/* .city-icon {
+    text-align: center;
+} */
+
+#city-name {
+display: inline-block;
+all: unset;
+background-color: #333533;
+border-radius: 5px;
+padding: 0.7rem;
+margin: 8px 4px;
+max-width: 7rem;
+}
+
+#form-btn {
+    all: unset;
+    color: #242423;
+    margin-left: 50%;
+    text-align: center;
+    transform: translateX(-50%);
+    background-color: #F5CB5C;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+#form-btn:hover {
+    width: 2.2rem;
+    height: 2.2rem;
+    transition: 0.1s;
+}
+
+/* Main Wrapper */
+
+.main-wrapper {
+    padding-left: 3rem;
+    background-color: #333533;
+}
+
+.homepage {
+color: #E8EDDF;
+margin-top: 8rem;
+}
+
+/* Current Weather Card */
+
+.current-weather {
+    display: inline-block;
+    background-color: #242423;
+    margin-top: 1rem;
+    padding: 0 1rem 0 1rem;
+    border-radius: 10px;
+    color: #E8EDDF;
+}
+
+.current-weather > * {
+    display: block;
+    margin: 4px;
+}
+
+.current-weather > *:last-child {
+    margin-bottom: 1rem;
+}
+.current-weather > *:first-child {
+    margin-top: 1rem;
+}
+
+.current-weather h1 {
+    margin-bottom: 0.5rem;
+}
+
+.current-temp {
+    color: #F5CB5C;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+
+.daily {
+    margin-top: 2rem;
+}
+
+.daily-heading {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.daily-heading > * {
+    all: unset;
+    margin-right: 0.5rem;
+    padding: 0.5rem;
+    font-size: 1.1rem;
+    background-color: #242423;
+    box-sizing: border-box;
+    border-radius: 5px;
+    color: #E8EDDF;
+cursor: pointer;   
+}
+
+.btn:hover {
+    box-shadow: 0 0 1pt 1pt #F5CB5C;
+}
+
+.focus {
+     box-shadow: 0 0 1pt 1pt #F5CB5C;
+}
+
+
+.card {
+    display: inline-block;
+    min-width: max-content;
+    background-color: #242423;
+    margin: 1rem 0.5rem 0.5rem 1rem;
+    padding: 0 1rem 0 1rem;
+    border-radius: 10px;
+    color: #E8EDDF;
+}
+
+.cards  > * {
+    display: block;
+    margin: 4px;
+}
+
+
+.cards  h1 {
+    margin-bottom: 0.5rem;
+}
+
+.cards  {
+    display: flex;
+    overflow: auto;
+    max-width: 80vw;
+    margin-right: 3rem;
+}
+
+.temp-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.temp-icon >* {
+    display: block;
+    margin: 0;
+}
+
+.hidden {
+    display: none;
+    transition: 1s;
+}
+
+.hourly-cards::-webkit-scrollbar, .daily-cards::-webkit-scrollbar {
+    height: 1rem;
+    background-color: #242423;
+    border-radius: 10px;
+  }
+.hourly-cards::-webkit-scrollbar-thumb, .daily-cards::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background-color: #F5CB5C;
+    border: 5px solid #F5CB5C;
+    width:1rem;
+}
+
+@media only screen and (min-width: 600px) { 
+    .cards  > *:last-child {
+        margin-right: 0;
+    }
+    
+    .cards  > *:first-child {
+        margin-left: 0;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+
+    .main-wrapper {
+        padding-left: 0;
+        background-color: #333533;
+    }
+
+    .current-weather {
+        display: block;
+        margin: 1rem auto;
+        padding: 1rem 2rem 1rem 2rem;
+        max-width: max-content;
+        margin-left: auto;
+        margin-left: auto;
+    }
+    
+    .daily-heading {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .card {
+        display: block;
+        background-color: #242423;
+        padding: 0 1rem 0 1rem;
+        border-radius: 10px;
+        color: #E8EDDF;
+    }
+    
+    .cards  > * {
+        display: block;
+        margin: 4px;
+    }
+    
+    .cards  h1 {
+        margin-bottom: 0.5rem;
+    }
+    
+    .cards {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-left: auto;
+        margin-left: auto;
+    }
+
+    .hidden {
+        display: none;
+        transition: 1s;
+    }
+    
+  }
