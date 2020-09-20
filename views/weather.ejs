@@ -10,7 +10,7 @@
   <body>
     <main>
       <section class="nav">
-        <h2 class="places">Places</h2>
+        <h2 class="places">City</h2>
         <p class="city"><%= cityName %></p>
         <form action="/" method="POST">
           <input type="text" name="cityName" id="city-name" />
@@ -35,7 +35,7 @@
             <button type="button" class="hourly-btn btn focus">HOURLY</button>
             <button type="button" class="daily-btn btn">DAILY</button>
           </div>
-          <div class="daily-cards cards hidden">
+          <div class="daily-cards cards-holder hidden">
             <!-- Daily Cards -->
             <%_ for(let i = 0; i < dailyWeath.length; i++ ) { %> <%_ let hour =
             dailyWeath[i].dt %>
@@ -59,7 +59,7 @@
             <%_ } %>
           </div>
 
-          <div class="hourly-cards cards">
+          <div class="hourly-cards cards-holder">
             <%_ for(let i = 0; i < hourlyWeath.length; i++ ) { %> <%_ let hour =
             hourlyWeath[i].dt %>
             <div class="hourly-weather card">

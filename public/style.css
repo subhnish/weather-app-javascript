@@ -151,17 +151,17 @@ cursor: pointer;
     color: #E8EDDF;
 }
 
-.cards  > * {
+.cards-holder  > * {
     display: block;
     margin: 4px;
 }
 
 
-.cards  h1 {
+.cards-holder  h1 {
     margin-bottom: 0.5rem;
 }
 
-.cards  {
+.cards-holder  {
     display: flex;
     overflow: auto;
     max-width: 80vw;
@@ -196,15 +196,15 @@ cursor: pointer;
 }
 
 @media only screen and (min-width: 600px) { 
-    .cards  > *:last-child {
+    .cards-holder  > *:last-child {
         margin-right: 0;
     }
     
-    .cards  > *:first-child {
+    .cards-holder  > *:first-child {
         margin-left: 0;
     }
 
-    .cards {
+    .cards-holder {
         margin-right: 3rem;
     }
 
@@ -245,16 +245,16 @@ cursor: pointer;
         color: #E8EDDF;
     }
     
-    .cards  > * {
+    .cards-holder  > * {
         display: block;
         margin: 4px;
     }
     
-    .cards  h1 {
+    .cards-holder  h1 {
         margin-bottom: 0.5rem;
     }
     
-    .cards {
+    .cards-holder {
         display: flex;
         flex-direction: column;
         width: 80%;

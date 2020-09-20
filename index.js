@@ -5,17 +5,15 @@ const ejs = require("ejs");
 const app = express();
 const dayjs = require("dayjs");
 const utc = require("dayjs/plugin/utc");
-var timezone = require("dayjs/plugin/timezone");
-dayjs.extend(timezone);
 dayjs.extend(utc);
-let json = "";
+
 let lat = "";
 let lon = "";
-let cityTimezone = "";
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
   res.render("home", {message: "Enter the City name",
 cityName: "-" });
@@ -34,8 +32,8 @@ app.post("/", (req, res) => {
       body += chunk;
     });
     response.on("end", () => {
-      json = JSON.parse(body);
-      console.log(json);
+      let json = JSON.parse(body);
+      // console.log(json);
     if (json.cod !== "404") {
       lat = json.coord.lat;
       lon = json.coord.lon;
@@ -44,8 +42,8 @@ app.post("/", (req, res) => {
         res.render("home", { message: json.message });
       }
 
-      //   console.log(json);
       let OneCallapiUrl = `${oneCallFrontUrl}${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}`;
+
       https.get(OneCallapiUrl, (response2) => {
         let body2 = "";
         response2.on("data", (chunk) => {
@@ -71,7 +69,6 @@ app.post("/", (req, res) => {
             weatherEjs: cityWeath,
             tempEjs: temperature,
             iconUrl: iconUrl,
-            timezone: cityTimezone,
             hourlyWeath: hourlyWeath,
             dailyWeath: dailyWeath,
             dayjs: dayjs,
@@ -83,9 +80,6 @@ app.post("/", (req, res) => {
               })
         });
       });
-      res.on("error", () => {
-        res.render("home", { message: "Oops Cannot Find the City, Please Try again" });
-    })
     });
   });
 });
