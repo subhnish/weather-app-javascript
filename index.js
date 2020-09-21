@@ -21,7 +21,7 @@ cityName: "-" });
 
 app.post("/", (req, res) => {
   let cityName = req.body.cityName;
-  const apiKey = "51c6260035c3c1a3e7d8736a3599ff3e";
+  const apiKey = "You API KEY"
   let frontUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   let apiUrl = `${frontUrl}${cityName}&appid=${apiKey}`;
   let oneCallFrontUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
