@@ -34,12 +34,12 @@ app.post("/", (req, res) => {
     response.on("end", () => {
       let json = JSON.parse(body);
       // console.log(json);
-    if (json.cod !== "404") {
-      lat = json.coord.lat;
-      lon = json.coord.lon;
+    if (json.cod === "404") {
+      res.render("home", { message: json.message });
     }
       else {
-        res.render("home", { message: json.message });
+        lat = json.coord.lat;
+        lon = json.coord.lon;
       }
 
       let OneCallapiUrl = `${oneCallFrontUrl}${lat}&lon=${lon}&exclude=minutely&appid=${apiKey}`;
