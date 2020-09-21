@@ -132,10 +132,6 @@ margin-top: 8rem;
 cursor: pointer;   
 }
 
-.btn:hover {
-    box-shadow: 0 0 1pt 1pt #F5CB5C;
-}
-
 .focus {
      box-shadow: 0 0 1pt 1pt #F5CB5C;
 }

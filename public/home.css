@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #333533;
+}
+
+main {
+    text-align: center;
+}
+
+.home-message {
+    margin-top: 40vh;
+    transform: translateY(-50%);
+    color: #E8EDDF;
+}
+
+#form-btn {
+    all: unset;
+    color: #242423;
+    text-align: center;
+    background-color: #F5CB5C;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    transition: 0.1s;
+}
+
+#form-btn:hover {
+    transform: scale(1.1);
+    transition: 0.1s;
+}
+
+#city-name {
+    all: unset;
+    background-color: #191919;
+    color: ivory;
+    border-radius: 10px;
+    padding: 0.7rem;
+    margin: 8px 4px;
+    max-width: 7rem;
+    }

@@ -21,7 +21,7 @@ cityName: "-" });
 
 app.post("/", (req, res) => {
   let cityName = req.body.cityName;
-  let apiKey = "51c6260035c3c1a3e7d8736a3599ff3e";
+  const apiKey = "51c6260035c3c1a3e7d8736a3599ff3e";
   let frontUrl = "https://api.openweathermap.org/data/2.5/weather?q=";
   let apiUrl = `${frontUrl}${cityName}&appid=${apiKey}`;
   let oneCallFrontUrl = "https://api.openweathermap.org/data/2.5/onecall?lat=";
@@ -76,7 +76,7 @@ app.post("/", (req, res) => {
           });
 
           res.on("error", () => {
-                  res.render("home", { message: "Oops Cannot Find the City, Please Try again" });
+                  res.render("home", { message: "Something went Wrong, Enter the City again" });
               })
         });
       });

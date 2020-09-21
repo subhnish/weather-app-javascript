@@ -15,7 +15,6 @@ if(forecastModeclick === "HOURLY") {
     hourlyCards.classList.remove("hidden");
     daily.classList.remove("focus")
     hourly.classList.remove("focus")
-    
     hourly.classList.add("focus")
     dailyCards.classList.add("hidden");
 
@@ -25,7 +24,6 @@ if(forecastModeclick === "HOURLY") {
     hourlyCards.classList.remove("hidden");
     daily.classList.remove("focus")
     hourly.classList.remove("focus")
-
     daily.classList.add("focus")
     hourlyCards.classList.add("hidden");
     }
